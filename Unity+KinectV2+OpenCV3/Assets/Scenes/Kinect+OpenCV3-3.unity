@@ -429,6 +429,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114967751337479558, guid: 59b000a80e6d5e2499f2880299f6ad4f,
+        type: 2}
+      propertyPath: bodyEventListeners.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4618990424034976, guid: 59b000a80e6d5e2499f2880299f6ad4f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
