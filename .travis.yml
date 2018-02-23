@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode8.2
+rvm:
+- 2.2
+
+before_install:
+- chmod a+x ./travis-build/*.sh
+
+install:
+- ./travis-build/install-unity.sh
+
+script:
+- ./travis-build/build.sh && ./travis-build/run-tests.sh
+
+after_success:
+- ./travis-build/export-package.sh
