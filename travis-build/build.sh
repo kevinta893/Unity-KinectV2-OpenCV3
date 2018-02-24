@@ -1,6 +1,6 @@
 #! /bin/sh
 
-project_path=$(pwd)/src/Unity+KinectV2+OpenCV3
+project_path=$(pwd)/Unity+KinectV2+OpenCV3
 log_file=$(pwd)/build/unity-mac.log
 
 error_code=0
