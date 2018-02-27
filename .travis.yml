@@ -6,6 +6,9 @@ rvm:
 env:
 - PACKAGE_VERSION="1.0"
 
+cache:
+  directories:
+    - /Applications/Unity
 
 before_install:
 - rvm get stable
