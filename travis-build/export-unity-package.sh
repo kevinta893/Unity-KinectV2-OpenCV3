@@ -2,11 +2,11 @@
 
 project_path=$(pwd)/src/Unity-KinectV2-OpenCV3
 log_file=$(pwd)/build/unity-mac.log
-export_path=$(pwd)/current-package/Unity+KinectV2+OpenCV3-"$TRAVIS_BUILD_NUMBER".unitypackage
+export_path=$(pwd)/Unity+KinectV2+OpenCV3-"$TRAVIS_BUILD_NUMBER".unitypackage
 
 error_code=0
 
-echo "Creating package."
+echo "Creating package at=$export_path"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
