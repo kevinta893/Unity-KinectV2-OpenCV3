@@ -1,8 +1,8 @@
 #! /bin/sh
 
 BASE_URL=http://netstorage.unity3d.com/unity
-HASH=fc1d3344e6ea
-VERSION=2017.3.1f1
+HASH=46dda1414e51
+VERSION=2017.2.0f3
 
 download() {
   file=$1
@@ -23,4 +23,15 @@ install() {
 # See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
 # of available packages, where PLATFORM is `osx` or `win`
 
-install "MacEditorInstaller/Unity-$VERSION.pkg"
+
+FILE=""
+DIR="/Applications/Unity/"
+# init
+# look for empty dir 
+if [ "$(ls -A $DIR)" ]; then
+     echo "Unity Exists. Will not redownload and install. Clear cache for clean install"
+else
+    echo "Unity does not exist. Download and installing:"
+	install "MacEditorInstaller/Unity-$VERSION.pkg"
+fi
+
