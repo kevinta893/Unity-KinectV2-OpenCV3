@@ -13,7 +13,7 @@ echo "Creating package at=$export_path"
   -silent-crashes \
   -logFile "$log_file" \
   -projectPath "$project_path" \
-  -exportPackage "Assets/" "$export_path" \
+  -exportPackage "$project_path/Assets/" "$export_path" \
   -quit
 if [ $? = 0 ] ; then
   echo "Created package successfully."
