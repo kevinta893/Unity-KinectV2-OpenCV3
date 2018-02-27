@@ -12,7 +12,7 @@ echo "Building project for Mac OS."
   -silent-crashes \
   -logFile "$log_file" \
   -projectPath "$project_path" \
-  -buildOSXUniversalPlayer "$(pwd)/build/osx/ci-build.app" \
+  -buildOSX64Player  "$(pwd)/build/osx/ci-build.app" \
   -quit
 if [ $? = 0 ] ; then
   echo "Building Mac OS completed successfully."
