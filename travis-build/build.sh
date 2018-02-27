@@ -4,7 +4,8 @@ project_path=$(pwd)/Unity+KinectV2+OpenCV3
 log_file=$(pwd)/build/unity-mac.log
 
 error_code=0
-
+echo "Items in project path ($project_path):"
+ls "$project_path"
 echo "Building project for Mac OS."
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
