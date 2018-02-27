@@ -1,11 +1,12 @@
 #! /bin/sh
 
-project_path=$(pwd)/Unity+KinectV2+OpenCV3
+project_path=$(pwd)/Unity-KinectV2-OpenCV3
 log_file=$(pwd)/build/unity-mac.log
 
 error_code=0
 
 echo "Building project for Mac OS."
+ls "$project_path"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
