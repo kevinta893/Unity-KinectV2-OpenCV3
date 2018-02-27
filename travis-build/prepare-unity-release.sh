@@ -14,3 +14,6 @@ cp "$package_path" "$release_path"
 cp "./README.md" "$release_directory"
 cp "./LICENSE" "$release_directory"
 zip -r $release_directory/$project-v$version.zip $release_directory
+
+echo "Files in release directory:"
+ls $release_directory
