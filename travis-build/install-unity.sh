@@ -1,37 +1,26 @@
 #! /bin/sh
 
-BASE_URL=http://netstorage.unity3d.com/unity
-HASH=46dda1414e51
-VERSION=2017.2.0f3
+BASE_URL=https://beta.unity3d.com/download
+HASH=ad31c9083c46
+VERSION=2017.2.0f1
 
 download() {
   file=$1
   url="$BASE_URL/$HASH/$package"
 
   echo "Downloading from $url: "
-  curl -o `basename "$package"` "$url"
+  curl -o "$package" "$url"
 }
 
 install() {
   package=$1
   download "$package"
 
-  echo "Installing "`basename "$package"`
-  sudo installer -dumplog -package `basename "$package"` -target /
+  echo "Installing "$package""
+  chmod 777 -c "$package"
+  sudo apt -y install ./"$package"
 }
 
-# See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
-# of available packages, where PLATFORM is `osx` or `win`
+# See main beta page: https://beta.unity3d.com/download/aea5ecb8f9fd+/public_download.html
 
-
-FILE=""
-DIR="/Applications/Unity/"
-# init
-# look for empty dir 
-if [ "$(ls -A $DIR)" ]; then
-     echo "Unity Exists. Will not redownload and install. Clear cache for clean install"
-else
-    echo "Unity does not exist. Download and installing:"
-	install "MacEditorInstaller/Unity-$VERSION.pkg"
-fi
-
+install "unity-editor_amd64-$VERSION.deb"

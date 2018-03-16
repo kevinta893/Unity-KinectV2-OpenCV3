@@ -1,7 +1,7 @@
 #! /bin/sh
 
 project_path=$(pwd)/Unity+KinectV2+OpenCV3
-log_file=$(pwd)/build/unity-mac.log
+log_file=$(pwd)/build/unity-linux.log
 
 error_code=0
 echo "Items in project path ($project_path):"
@@ -13,7 +13,7 @@ echo "Building project for Mac OS."
   -silent-crashes \
   -logFile "$log_file" \
   -projectPath "$project_path" \
-  -buildOSX64Player  "$(pwd)/build/osx/ci-build.app" \
+  -buildLinux64Player  "$(pwd)/build/osx/ci-build.app" \
   -quit
 if [ $? = 0 ] ; then
   echo "Building Mac OS completed successfully."
