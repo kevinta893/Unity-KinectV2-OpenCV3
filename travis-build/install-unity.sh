@@ -1,6 +1,6 @@
 #! /bin/sh
 
-BASE_URL=http://netstorage.unity3d.com/unity
+BASE_URL=https://beta.unity3d.com/download
 HASH=46dda1414e51
 VERSION=2017.2.0f3
 
@@ -33,5 +33,6 @@ if [ "$(ls -A $DIR)" ]; then
 else
     echo "Unity does not exist. Download and installing:"
 	install "MacEditorInstaller/Unity-$VERSION.pkg"
+	install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
 fi
 

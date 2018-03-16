@@ -1,25 +1,25 @@
 #! /bin/sh
 
 project_path=$(pwd)/Unity+KinectV2+OpenCV3
-log_file=$(pwd)/build/unity-mac.log
+log_file=$(pwd)/build/unity-win.log
 
 error_code=0
 echo "Items in project path ($project_path):"
 ls "$project_path"
-echo "Building project for Mac OS."
+echo "Building project for Windows."
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
   -silent-crashes \
   -logFile "$log_file" \
   -projectPath "$project_path" \
-  -buildOSX64Player  "$(pwd)/build/osx/ci-build.app" \
+  -buildWindows64Player  "$(pwd)/build/win/ci-build.exe" \
   -quit
 if [ $? = 0 ] ; then
-  echo "Building Mac OS completed successfully."
+  echo "Building Windows exe completed successfully."
   error_code=0
 else
-  echo "Building Mac OS failed. Exited with $?."
+  echo "Building Windows exe failed. Exited with $?."
   error_code=1
 fi
 

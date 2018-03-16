@@ -1,7 +1,7 @@
 #! /bin/sh
 
 project_path=$(pwd)/Unity+KinectV2+OpenCV3
-log_file=$(pwd)/build/unity-mac.log
+log_file=$(pwd)/build/unity-win.log
 export_path=$(pwd)/Unity+KinectV2+OpenCV3-v"$TRAVIS_TAG"-build"$TRAVIS_BUILD_NUMBER".unitypackage
 
 error_code=0
