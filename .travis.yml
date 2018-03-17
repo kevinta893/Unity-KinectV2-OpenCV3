@@ -10,6 +10,16 @@ cache:
   directories:
     - $UNITY_DOWNLOAD_CACHE
 
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: release/*.zip
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true   
+    
+    
 before_install:
 - rvm get stable
 - chmod a+x ./travis-build/*.sh
@@ -24,3 +34,4 @@ script:
 
 after_success:
 - ./travis-build/export-unity-package.sh
+
