@@ -1,12 +1,17 @@
 #! /bin/sh
 
 project_path=$(pwd)/Unity+KinectV2+OpenCV3
-log_file=$(pwd)/build/unity-win.log
+UNITY_BUILD_DIR=$(pwd)/Build
+LOG_FILE=$UNITY_BUILD_DIR/unity-win.log
 
-error_code=0
+
+ERROR_CODE=0
 echo "Items in project path ($project_path):"
 ls "$project_path"
+
+
 echo "Building project for Windows..."
+mkdir $UNITY_BUILD_DIR
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
@@ -15,18 +20,18 @@ echo "Building project for Windows..."
   -projectPath "$project_path" \
   -buildWindows64Player  "$(pwd)/build/win/ci-build.exe" \
   -quit \
-  | tee "$log_file"
+  | tee "$LOG_FILE"
   
 if [ $? = 0 ] ; then
   echo "Building Windows exe completed successfully."
-  error_code=0
+  ERROR_CODE=0
 else
   echo "Building Windows exe failed. Exited with $?."
-  error_code=1
+  ERROR_CODE=1
 fi
 
 echo 'Build logs:'
-cat $log_file
+cat $LOG_FILE
 
-echo "Finishing with code $error_code"
-exit $error_code
+echo "Finishing with code $ERROR_CODE"
+exit $ERROR_CODE
