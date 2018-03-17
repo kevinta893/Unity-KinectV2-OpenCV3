@@ -21,7 +21,7 @@ download() {
 	url="$BASE_URL/$file"
 
 	echo "Downloading from $url: "
-	curl -o `basename "$package"` "$url"
+	curl -o `basename "$file"` "$url"
 }
 
 install() {
