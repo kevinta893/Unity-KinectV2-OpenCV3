@@ -1,6 +1,6 @@
 #! /bin/sh
 
-project_path=$(pwd)/Unity+KinectV2+OpenCV3
+PROJECT_PATH=$(pwd)/Unity+KinectV2+OpenCV3
 UNITY_BUILD_DIR=$(pwd)/Build
 LOG_FILE=$UNITY_BUILD_DIR/unity-win.log
 
@@ -17,7 +17,7 @@ mkdir $UNITY_BUILD_DIR
   -nographics \
   -silent-crashes \
   -logFile \
-  -projectPath "$project_path" \
+  -projectPath "$PROJECT_PATH" \
   -buildWindows64Player  "$(pwd)/build/win/ci-build.exe" \
   -quit \
   | tee "$LOG_FILE"

@@ -15,7 +15,7 @@ mkdir $UNITY_BUILD_DIR
   -silent-crashes \
   -logFile \
   -projectPath "$PROJECT_PATH" \
-  -exportPackage "Assets/" "$EXPORT_PATH" \
+  -exportPackage "Assets" "$EXPORT_PATH" \
   -quit
   | tee "$LOG_FILE"
   
