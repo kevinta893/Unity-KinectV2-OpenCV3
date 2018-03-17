@@ -20,7 +20,7 @@ download() {
 	URL="$BASE_URL/$FILE"
 
 	#download package if it does not already exist in cache
-	if [ ! -e $UNITY_DOWNLOAD_CACHE/`basename "$FILE"`] ; then
+	if [ ! -e $UNITY_DOWNLOAD_CACHE/`basename "$FILE"` ] ; then
 		echo "$FILE does not exist. Downloading from $URL: "
 		curl -o $UNITY_DOWNLOAD_CACHE/`basename "$FILE"` "$URL"
 	else
