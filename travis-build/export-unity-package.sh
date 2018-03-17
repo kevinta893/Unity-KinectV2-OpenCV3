@@ -44,8 +44,6 @@ if [ $? = 0 ] ; then
 	echo "Release zip package ready. Zipinfo:"
 	zipinfo $RELEASE_ZIP_FILE
 	
-	#setup enviroment variable for release after.
-	DEPLOY_UNITYPACKAGE=RELEASE_ZIP_FILE
 else
 	echo "Creating package failed. Exited with $?."
 	ls
