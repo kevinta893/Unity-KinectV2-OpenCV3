@@ -3,7 +3,7 @@
 PROJECT_PATH=$(pwd)/Unity+KinectV2+OpenCV3
 UNITY_BUILD_DIR=$(pwd)/Build
 LOG_FILE=$UNITY_BUILD_DIR/unity-win.log
-EXPORT_PATH=$(pwd)/Unity+KinectV2+OpenCV3-v"$TRAVIS_TAG"-build"$TRAVIS_BUILD_NUMBER".unitypackage
+EXPORT_PATH=$(pwd)/Unity+KinectV2+OpenCV3-v"$PACKAGE_VERSION"-b"$TRAVIS_BUILD_NUMBER".unitypackage
 
 ERROR_CODE=0
 
@@ -39,7 +39,7 @@ if [ $? = 0 ] ; then
 	echo "Files in release directory:"
 	ls $RELEASE_DIRECTORY
 
-	zip -r $RELEASE_ZIP_FILE $RELEASE_DIRECTORY
+	zip -6 -r $RELEASE_ZIP_FILE $RELEASE_DIRECTORY
 
 	echo "Release zip package ready. Zipinfo:"
 	zipinfo $RELEASE_ZIP_FILE
