@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity+KinectV2+OpenCV3", "Unity+KinectV2+OpenCV3.csproj", "{F142763B-48FB-5C60-2457-00E7F6721915}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity+KinectV2+OpenCV3.Editor", "Unity+KinectV2+OpenCV3.Editor.csproj", "{8D34790E-1207-AABE-3AFC-4895847ABE0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F142763B-48FB-5C60-2457-00E7F6721915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F142763B-48FB-5C60-2457-00E7F6721915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F142763B-48FB-5C60-2457-00E7F6721915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F142763B-48FB-5C60-2457-00E7F6721915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D34790E-1207-AABE-3AFC-4895847ABE0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D34790E-1207-AABE-3AFC-4895847ABE0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D34790E-1207-AABE-3AFC-4895847ABE0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D34790E-1207-AABE-3AFC-4895847ABE0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
