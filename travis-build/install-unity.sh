@@ -34,7 +34,7 @@ install() {
 
 
 # Check if unity was already downloaded, clear the cache if missing modules or need clean install
-if [! `ls -A directory_to_test/ | wc -m` == "0"]; then
+if [ ! `ls -A directory_to_test/ | wc -m` == "0"]; then
 	echo "Unity download cache does not exist. Download and installing:"
 	rm -rf "$UNITY_DOWNLOAD_CACHE"
 	mkdir "$UNITY_DOWNLOAD_CACHE"
