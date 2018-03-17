@@ -8,7 +8,7 @@ env:
 
 cache:
   directories:
-    - /Applications/Unity
+    - $(pwd)/unity_download_cache
 
 before_install:
 - rvm get stable
@@ -19,7 +19,8 @@ install:
 - ./travis-build/install-unity.sh
 
 script:
-- ./travis-build/build.sh && ./travis-build/run-tests.sh
+- ./travis-build/build.sh
+- ./travis-build/run-tests.sh
 
 after_success:
 - ./travis-build/export-unity-package.sh && ./travis-build/prepare-unity-release.sh "$PACKAGE_VERSION"
