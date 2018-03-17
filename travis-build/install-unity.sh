@@ -16,35 +16,26 @@ UNITY_WINDOWS_TARGET_PACKAGE="MacEditorTargetInstaller/UnitySetup-Windows-Suppor
 
 download() {
 	
-	file=$1
-	url="$BASE_URL/$file"
+	FILE=$1
+	URL="$BASE_URL/$FILE"
 
-	echo "Downloading from $url: "
-	curl -o $UNITY_DOWNLOAD_CACHE/`basename "$file"` "$url"
+	#download package if it does not already exist in cache
+	if [ ! -e $UNITY_DOWNLOAD_CACHE/`basename "$FILE"`] ; then
+		echo "$FILE does not exist. Downloading from $URL: "
+		curl -o $UNITY_DOWNLOAD_CACHE/`basename "$FILE"` "$URL"
+	else
+		echo "$FILE Exists. Skipping download."
+	fi
 }
 
 install() {
-	package=$1
-
-	echo "Installing "`basename "$package"`
-	sudo installer -dumplog -package $UNITY_DOWNLOAD_CACHE/`basename "$package"` -target /
+	PACKAGE=$1
+	download "$PACKAGE"
+	
+	echo "Installing "`basename "$PACKAGE"`
+	sudo installer -dumplog -PACKAGE $UNITY_DOWNLOAD_CACHE/`basename "$PACKAGE"` -target /
 }
 
-
-
-
-# Check if unity was already downloaded, clear the cache if missing modules or need clean install
-if [ ! "$(ls -A $UNITY_DOWNLOAD_CACHE)" ] ; then
-	echo "Unity download cache does not exist. Download and installing:"
-	rm -rf "$UNITY_DOWNLOAD_CACHE"
-	mkdir "$UNITY_DOWNLOAD_CACHE"
-	download "$UNITY_OSX_PACKAGE"
-	download "$UNITY_WINDOWS_TARGET_PACKAGE"
-else
-	echo "Unity Exists. Will not redownload. Cache Contents:"
-	ls "$UNITY_DOWNLOAD_CACHE"
-	echo "Proceeding to install from cache..."
-fi
 
 echo "Installing Unity..."
 install "$UNITY_OSX_PACKAGE"

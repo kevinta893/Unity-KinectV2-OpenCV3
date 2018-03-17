@@ -27,7 +27,7 @@ if [ $? = 0 ] ; then
 	#Preprare release unity package by packing into ZIP
 	PROJECT_NAME="Unity+KinectV2+OpenCV3"
 	RELEASE_DIRECTORY=$(pwd)/release
-	RELEASE_ZIP_FILE=$RELEASE_DIRECTORY/$PROJECT_NAME-v$PACKAGE_VERSION.zip
+	RELEASE_ZIP_FILE=$RELEASE_DIRECTORY/$PROJECT_NAME-v$TRAVIS_TAG.zip
 
 	mkdir -p $RELEASE_DIRECTORY
 
