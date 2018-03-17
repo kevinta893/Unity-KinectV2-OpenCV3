@@ -8,7 +8,7 @@ env:
 
 cache:
   directories:
-    - $(pwd)/unity_download_cache
+    - $UNITY_DOWNLOAD_CACHE
 
 before_install:
 - rvm get stable
