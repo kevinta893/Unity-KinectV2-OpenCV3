@@ -1,6 +1,9 @@
 #! /bin/sh
 
 
+
+
+
 # See $BASE_URL/$HASH/unity-$VERSION-$PLATFORM.ini for complete list
 # of available packages, where PLATFORM is `osx` or `win`
 UNITY_DOWNLOAD_CACHE=$(pwd)/unity_download_cache
@@ -9,20 +12,6 @@ VERSION=2017.2.0f3
 
 UNITY_OSX_PACKAGE="MacEditorInstaller/Unity-$VERSION.pkg"
 UNITY_WINDOWS_TARGET_PACKAGE="MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
-
-# Check if unity was already downloaded
-if [ ! "$(ls -A $UNITY_DOWNLOAD_CACHE)" ]; then
-	echo "Unity does not exist. Download and installing:"
-	download "$UNITY_OSX_PACKAGE"
-	download "$UNITY_WINDOWS_TARGET_PACKAGE"
-else
-	echo "Unity Exists. Will not redownload. Proceeding to install from cache..."
-fi
-
-echo "Installing Unity..."
-install "$UNITY_OSX_PACKAGE"
-install "$UNITY_WINDOWS_TARGET_PACKAGE"
-
 
 
 download() {
@@ -45,4 +34,16 @@ install() {
 
 
 
+# Check if unity was already downloaded
+if [ ! "$(ls -A $UNITY_DOWNLOAD_CACHE)" ]; then
+	echo "Unity does not exist. Download and installing:"
+	download "$UNITY_OSX_PACKAGE"
+	download "$UNITY_WINDOWS_TARGET_PACKAGE"
+else
+	echo "Unity Exists. Will not redownload. Proceeding to install from cache..."
+fi
+
+echo "Installing Unity..."
+install "$UNITY_OSX_PACKAGE"
+install "$UNITY_WINDOWS_TARGET_PACKAGE"
 
