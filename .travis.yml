@@ -4,8 +4,7 @@ rvm:
 - 2.2         #see before_install for getting RVM stable.
 
 env:
-- PACKAGE_VERSION="1.0"
-- UNITY_DOWNLOAD_CACHE="$(pwd)/unity_download_cache"
+- PACKAGE_VERSION="1.0" UNITY_DOWNLOAD_CACHE="$(pwd)/unity_download_cache"
 
 cache:
   directories:
