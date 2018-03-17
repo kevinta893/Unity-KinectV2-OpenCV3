@@ -27,9 +27,6 @@ after_success:
 - ./travis-build/export-unity-package.sh
 
 before_deploy:
-- git config --local user.name "$GITHUB_USERNAME"
-- git config --local user.email "$GITHUB_EMAIL"
-- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 - DEPLOY_UNITYPACKAGE="$(ls -a release/*.zip | head -n 1)"
 
 deploy:
