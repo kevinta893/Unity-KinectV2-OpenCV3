@@ -4,7 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Kinect+OpenCV+Demo.unity
-    guid: 01e82c25b9d01784aaa692b2593bc486
+  m_Scenes: []
