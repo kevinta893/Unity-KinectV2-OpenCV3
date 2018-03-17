@@ -3,7 +3,7 @@
 PROJECT_PATH=$(pwd)/Unity+KinectV2+OpenCV3
 UNITY_BUILD_DIR=$(pwd)/Build
 LOG_FILE=$UNITY_BUILD_DIR/unity-win.log
-EXPORT_PATH=$(pwd)/Unity+KinectV2+OpenCV3-v"$PACKAGE_VERSION"-b"$TRAVIS_BUILD_NUMBER".unitypackage
+EXPORT_PATH=$(pwd)/Unity+KinectV2+OpenCV3-v"$TRAVIS_TAG"-b"$TRAVIS_BUILD_NUMBER".unitypackage
 
 ERROR_CODE=0
 
@@ -27,11 +27,11 @@ if [ $? = 0 ] ; then
 	#Preprare release unity package by packing into ZIP
 	PROJECT_NAME="Unity+KinectV2+OpenCV3"
 	RELEASE_DIRECTORY=$(pwd)/release
-	RELEASE_ZIP_FILE=$RELEASE_DIRECTORY/$PROJECT_NAME-v$PACKAGE_VERSION.zip
+	RELEASE_ZIP_FILE=$RELEASE_DIRECTORY/$PROJECT_NAME-v$TRAVIS_TAG.zip
 
 	mkdir -p $RELEASE_DIRECTORY
 
-	echo "Preparing release for version: $PACKAGE_VERSION"
+	echo "Preparing release for version: $TRAVIS_TAG"
 	cp "$EXPORT_PATH" "$RELEASE_DIRECTORY/"`basename "$EXPORT_PATH"`
 	cp "./README.md" "$RELEASE_DIRECTORY"
 	cp "./LICENSE" "$RELEASE_DIRECTORY"
