@@ -23,4 +23,4 @@ script:
 - ./travis-build/run-tests.sh
 
 after_success:
-- ./travis-build/export-unity-package.sh && ./travis-build/prepare-unity-release.sh "$PACKAGE_VERSION"
+- ./travis-build/export-unity-package.sh
