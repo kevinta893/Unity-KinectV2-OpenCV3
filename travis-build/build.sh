@@ -11,10 +11,11 @@ echo "Building project for Windows."
   -batchmode \
   -nographics \
   -silent-crashes \
-  -logFile "$log_file" \
+  -logFile \
   -projectPath "$project_path" \
   -buildWindows64Player  "$(pwd)/build/win/ci-build.exe" \
-  -quit
+  -quit \
+  |& tee "$log_file"
 if [ $? = 0 ] ; then
   echo "Building Windows exe completed successfully."
   error_code=0
