@@ -16,7 +16,7 @@ mkdir $UNITY_BUILD_DIR
   -logFile \
   -projectPath "$PROJECT_PATH" \
   -exportPackage "Assets" "$EXPORT_PATH" \
-  -quit
+  -quit \
   | tee "$LOG_FILE"
   
 if [ $? = 0 ] ; then
