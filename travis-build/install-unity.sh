@@ -33,7 +33,7 @@ install() {
 	download "$PACKAGE"
 	
 	echo "Installing "`basename "$PACKAGE"`
-	sudo installer -dumplog -PACKAGE $UNITY_DOWNLOAD_CACHE/`basename "$PACKAGE"` -target /
+	sudo installer -dumplog -package $UNITY_DOWNLOAD_CACHE/`basename "$PACKAGE"` -target /
 }
 
 
