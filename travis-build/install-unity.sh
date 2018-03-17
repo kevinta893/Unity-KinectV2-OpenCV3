@@ -16,7 +16,6 @@ UNITY_WINDOWS_TARGET_PACKAGE="MacEditorTargetInstaller/UnitySetup-Windows-Suppor
 
 download() {
 	
-	mkdir "$UNITY_DOWNLOAD_CACHE"
 	file=$1
 	url="$BASE_URL/$file"
 
@@ -35,8 +34,9 @@ install() {
 
 
 # Check if unity was already downloaded, clear the cache if missing modules or need clean install
-if [ ! "$(ls -A $UNITY_DOWNLOAD_CACHE)" ]; then
+if [ ! -d "$UNITY_DOWNLOAD_CACHE" ]; then
 	echo "Unity does not exist. Download and installing:"
+	mkdir "$UNITY_DOWNLOAD_CACHE"
 	download "$UNITY_OSX_PACKAGE"
 	download "$UNITY_WINDOWS_TARGET_PACKAGE"
 else
