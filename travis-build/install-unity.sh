@@ -21,14 +21,14 @@ download() {
 	url="$BASE_URL/$file"
 
 	echo "Downloading from $url: "
-	curl -o `basename "$file"` "$url"
+	curl -o $UNITY_DOWNLOAD_CACHE/`basename "$file"` "$url"
 }
 
 install() {
 	package=$1
 
 	echo "Installing "`basename "$package"`
-	sudo installer -dumplog -package `basename "$package"` -target /
+	sudo installer -dumplog -package $UNITY_DOWNLOAD_CACHE/`basename "$package"` -target /
 }
 
 
