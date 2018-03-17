@@ -34,13 +34,15 @@ install() {
 
 
 
-# Check if unity was already downloaded
+# Check if unity was already downloaded, clear the cache if missing modules or need clean install
 if [ ! "$(ls -A $UNITY_DOWNLOAD_CACHE)" ]; then
 	echo "Unity does not exist. Download and installing:"
 	download "$UNITY_OSX_PACKAGE"
 	download "$UNITY_WINDOWS_TARGET_PACKAGE"
 else
-	echo "Unity Exists. Will not redownload. Proceeding to install from cache..."
+	echo "Unity Exists. Will not redownload. Cache Contents:"
+	ls "$UNITY_DOWNLOAD_CACHE"
+	echo "Proceeding to install from cache..."
 fi
 
 echo "Installing Unity..."
