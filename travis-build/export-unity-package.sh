@@ -32,5 +32,28 @@ fi
 #echo 'Build logs:'
 #cat $LOG_FILE
 
-echo "Finishing with code $error_code"
+echo "Export finished with code $error_code"
 exit $error_code
+
+
+#Preprare release unity package by packing into ZIP
+VERSION_TAG="$TRAVIS_TAG"
+PROJECT_NAME="Unity+KinectV2+OpenCV3"
+RELEASE_DIRECTORY=$(pwd)/release
+RELEASE_ZIP_FILE=$RELEASE_DIRECTORY/$PROJECT_NAME-v$VERSION_TAG.zip
+
+mkdir -p $RELEASE_DIRECTORY
+
+echo "Preparing release for version: $VERSION_TAG"
+cp "$EXPORT_PATH" "$RELEASE_DIRECTORY/"`basename "$EXPORT_PATH"`
+cp "./README.md" "$RELEASE_DIRECTORY"
+cp "./LICENSE" "$RELEASE_DIRECTORY"
+
+echo "Files in release directory:"
+ls $RELEASE_DIRECTORY
+
+zip -r $RELEASE_ZIP_FILE $RELEASE_DIRECTORY
+
+
+echo "Release zip package ready. Zipinfo:"
+zipinfo $RELEASE_ZIP_FILE
