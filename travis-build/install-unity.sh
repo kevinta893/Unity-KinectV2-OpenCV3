@@ -34,8 +34,9 @@ install() {
 
 
 # Check if unity was already downloaded, clear the cache if missing modules or need clean install
-if [ ! -d "$UNITY_DOWNLOAD_CACHE" ]; then
-	echo "Unity does not exist. Download and installing:"
+if [test "$(ls -A "$target")"]; then
+	echo "Unity download cache does not exist. Download and installing:"
+	rm -rf "$UNITY_DOWNLOAD_CACHE"
 	mkdir "$UNITY_DOWNLOAD_CACHE"
 	download "$UNITY_OSX_PACKAGE"
 	download "$UNITY_WINDOWS_TARGET_PACKAGE"
