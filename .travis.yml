@@ -4,7 +4,7 @@ rvm:
 - 2.2         #see before_install for getting RVM stable.
 
 env:
-- TRAVIS_TAG="1.0" UNITY_DOWNLOAD_CACHE="$(pwd)/unity_download_cache"
+- TRAVIS_TAG="1.0" UNITY_DOWNLOAD_CACHE="$(pwd)/unity_download_cache" DEPLOY_UNITYPACKAGE="set path in deploy script"
 
 cache:
   directories:
@@ -34,7 +34,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  file: ./release/*.zip
+  file: $DEPLOY_UNITYPACKAGE
   skip_cleanup: true
   overwrite: true
   on:
