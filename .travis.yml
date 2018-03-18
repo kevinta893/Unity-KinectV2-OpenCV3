@@ -4,7 +4,8 @@ rvm:
 - 2.2         #see before_install for getting RVM stable.
 
 env:
-- TRAVIS_TAG="1.0" UNITY_DOWNLOAD_CACHE="$(pwd)/unity_download_cache" DEPLOY_UNITYPACKAGE="set path in deploy script"
+- TRAVIS_TAG="1.0" PROJECT_NAME="Unity-KinectV2-OpenCV3" UNITY_PROJECT_PATH="Unity+KinectV2+OpenCV3" UNITY_DOWNLOAD_CACHE="$(pwd)/unity_download_cache" DEPLOY_UNITYPACKAGE="path set in deploy script"
+
 
 cache:
   directories:
@@ -27,9 +28,6 @@ after_success:
 - ./travis-build/export-unity-package.sh
 
 before_deploy:
-- git config --local user.name "$GITHUB_USERNAME"
-- git config --local user.email "$GITHUB_EMAIL"
-- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 - DEPLOY_UNITYPACKAGE="$(ls -a release/*.zip | head -n 1)"
 
 deploy:
