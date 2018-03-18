@@ -1,5 +1,6 @@
 # Unity+KinectV2+OpenCV3
 [![Build Status](https://travis-ci.org/kevinta893/Unity-KinectV2-OpenCV3.svg?branch=master)](https://travis-ci.org/kevinta893/Unity-KinectV2-OpenCV3)
+[![License](https://img.shields.io/badge/License-BSD--3--Clause-green.svg)]()
 [![unity version](https://img.shields.io/badge/unity%20version-2017.2.0f3-green.svg)]()
 
 A package that includes both Microsoft Kinect V2 and OpenCV 3 (using OpenCVSharp). Requires Unity 2017.2.0f3 or higher.
