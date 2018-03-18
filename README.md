@@ -2,17 +2,14 @@
 [![Build Status](https://travis-ci.org/kevinta893/Unity-KinectV2-OpenCV3.svg?branch=master)](https://travis-ci.org/kevinta893/Unity-KinectV2-OpenCV3)
 [![unity version](https://img.shields.io/badge/unity%20version-2017.2.0f3-green.svg)]()
 
-A package that includes both Microsoft Kinect V2 and OpenCV 3 (using OpenCVSharp). Requires Unity 2017 or higher.
- Thus requires the use of a *mcs.rsp* file to allow the use of ```extern alias```. 
+A package that includes both Microsoft Kinect V2 and OpenCV 3 (using OpenCVSharp). Requires Unity 2017.2.0f3 or higher.
 
 ## Installation
-Simply drag the .unitypackage into your project and you're mostly ready to go. You will need to configure your build settings.
-
-You will need to setup the following for Unity in the player settings:
+Simply drag the .unitypackage into your project and you're mostly ready to go. You will need to setup the following for Unity in the player settings:
 
 Player settings:
 * *Resolution and Presentation > Run In Background* should be set to **true**
-* *File > Build Settings... > Player Settings... > Other Settings > Configuration> API Compatibility Level* should be set to **.NET 2.0**
+* *File > Build Settings... > Player Settings... > Other Settings > Configuration> API Compatibility Level* should be set to **.NET 2.0** (not subset!)
 
 ## How to Use
 See the Assets/Scene/Kinect+OpenCV+Demo scene on how to use. The KinectManager gameobject manages information being passed by the Windows DLLs and Unity. KinectView contains gameobjects that translate information by the KinectManagers into graphical elements.
@@ -46,14 +43,15 @@ Vector3 thumbPosition = thumbRight.transform.localPosition;
 ### OpenCV 3
 Using OpenCVSharp, it is possible to work with the Kinect's camera streams using OpenCV 3. Note that you will want to use **LateUpdate()** function instead of Update() to allow the Kinect to fully collect and create the textures before debugging. 
 
-See also the **KinectCVUtilities** script for a bunch of useful functions for working with OpenCV and Kinect in Unity. Examples of how to use these functions are in the examples.
+See also the **KinectCVUtilities** script for a bunch of useful functions for working with OpenCV and Kinect in Unity. Examples of how to use these functions are in the example scripts.
 
 Included OpenCV examples are:
-* Blob tracking in Infrared stream, use a retroreflective material (e.g. mocap) to have that be tracked by the Kinect
-* Face Detection in Color stream, slower than what the Kinect provides, but may be of use
+* Blob tracking in Infrared stream, use a retroreflective material (e.g. mocap) to have that be tracked by the Kinect (see *Scripts/Demo/BlobTrackerDemo.cs*)
+* Face Detection in Color stream, slower than what the Kinect provides, but maybe of useful (see *Scripts/Demo/BlobTrackerDemo.cs*)
 
 Enable the game objects for these demos as necessary or remove them entirely to use the scenes as a template.
 
+Some excellent examples of OpenCVSharp in action: [VahidN/OpenCVSharp-Samples](https://github.com/VahidN/OpenCVSharp-Samples)
 
 ### Troubleshooting
 
@@ -62,12 +60,7 @@ Some potential errors:
 
 
 
-
-
 ## Libraries Used
 * Microsoft's KinectForWindows_UnityPro_2.0.1410
 * [shimat/opencvsharp](https://github.com/shimat/opencvsharp)
 * Demo code derived from: [VahidN/OpenCVSharp-Samples](https://github.com/VahidN/OpenCVSharp-Samples)
-
-### License
-An alternate license has been used to comply with OpenCVSharp's license to distribute the required DLLs. See License.txt in this folder. This license is specifically only for this project .
