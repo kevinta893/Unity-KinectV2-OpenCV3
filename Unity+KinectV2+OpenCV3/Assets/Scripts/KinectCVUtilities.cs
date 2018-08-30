@@ -87,7 +87,7 @@ public static class KinectCVUtilities
 
         //now compute Cy
         double cy = 0;
-        for (int i = 0; i < vertices.Length; i++)
+        for (int i = 0; i < vertices.Length ; i++)
         {
             Point v_i = vertices[i % vertices.Length];
             Point v_i_1 = vertices[(i + 1) % vertices.Length];          //element i+1
@@ -224,6 +224,35 @@ public static class KinectCVUtilities
         return worldPt;
     }
 
+    public static Vector2 TransformUnityToTexture(Transform plane, Vector2 texSize, Vector3 pt)
+    {
+        //detransform the coordinates using the plane
+        Vector3 detransform = pt;
+        //detransform
+        detransform -= plane.position;
+        detransform = Quaternion.Inverse(plane.rotation) * detransform;
+        detransform = Vector3.Scale(new Vector3(1.0f / plane.localScale.x, 1.0f / plane.localScale.y, 1.0f / plane.localScale.z), detransform);      //remove plane scale
+
+
+        detransform.x = detransform.x * texSize.x;
+        detransform.y = detransform.y * texSize.y;
+
+
+        //negate up and down
+        detransform.y = texSize.y - detransform.y;
+
+        //offset the coordinates since they refer an origin starting at the middle of the plane
+        Vector2 planeOffset = new Vector2(texSize.x / 2.0f, texSize.y / 2.0f);
+        planeOffset.x *= 1;
+        planeOffset.y *= -1;
+        detransform.x = detransform.x + planeOffset.x;
+        detransform.y = detransform.y + planeOffset.y;
+
+        Debug.Log(detransform);
+        return new Vector2(detransform.x, detransform.y);
+
+    }
+
     /// <summary>
     /// Converts a list to points
     /// </summary>
@@ -247,7 +276,7 @@ public static class KinectCVUtilities
     public static Vector2[] PointsToVector2(Point[] list)
     {
         Vector2[] ret = new Vector2[list.Length];
-        for (int i = 0; i < list.Length; i++)
+        for(int i = 0; i < list.Length; i++)
         {
             ret[i] = new Vector2(list[i].X, list[i].Y);
         }
