@@ -248,7 +248,6 @@ public static class KinectCVUtilities
         detransform.x = detransform.x + planeOffset.x;
         detransform.y = detransform.y + planeOffset.y;
 
-        Debug.Log(detransform);
         return new Vector2(detransform.x, detransform.y);
 
     }
